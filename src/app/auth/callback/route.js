@@ -16,15 +16,17 @@ export async function GET(request) {
       if (user) {
         const { data: profile } = await supabase
         .from("profiles")
-        .select("id")
+        .select("id, nickname")
         .eq("id", user.id)
         .maybeSingle()
         
-        if (profile) {
+        const isNicknameValid = profile?.nickname && !profile.nickname.startsWith("guest_")
+
+        if (profile && isNicknameValid) {
           return NextResponse.redirect(`${origin}/dashboard`)
-        } else {
-          return NextResponse.redirect(`${origin}/create-profile`)
         }
+        
+        return NextResponse.redirect(`${origin}/create-profile/sign-in`)
       }
     }
   }
