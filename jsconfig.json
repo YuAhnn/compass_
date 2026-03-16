@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "auth/*": ["./src/components/auth/*"],
+      "lib/*": ["./src/lib/*"],
+      "hooks/*": ["./src/app/hooks/*"]
+    }
+  }
+}

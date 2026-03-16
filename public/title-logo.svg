@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147 150" width="147" height="150" role="img" aria-label="Compass icon">
+  <style>
+    .needle {
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+      animation: rotate-needle 6s ease-in-out infinite;
+    }
+
+    @keyframes rotate-needle {
+      0%   { transform: rotate(-10deg); }
+      50%  { transform: rotate(180deg); }
+      100% { transform: rotate(-10deg); }
+    }
+  </style>
+
+  <g transform="translate(36,36)">
+    <circle cx="37.5" cy="37.5" r="37.5" stroke="#3fb185" stroke-width="18" fill="none"></circle>
+    <!-- Needle -->
+    <g transform="translate(37.5,37.5)">
+      <g class="needle">
+        <path d="M0,-12 L7,0 L0,12 L-7,0 Z" fill="#3fb185"></path>
+      </g>
+    </g>
+  </g>
+</svg>

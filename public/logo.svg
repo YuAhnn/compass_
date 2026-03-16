@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="88 62 780 124" role="img" aria-label="COMPASS logo">
+  <!-- "C" -->
+  <text class="logo-text" x="95" y="135">C</text>
+
+  <!-- "O" -->
+  <g transform="translate(192,40)">
+    <circle cx="75" cy="80" r="45" stroke="#3fb185" stroke-width="20" fill="none"/>
+    <g transform="translate(75,80)">
+      <g class="needle">
+        <path d="M0,-18 L9,0 L0,18 L-9,0 Z" fill="#3fb185"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- "MPASS" -->
+  <text class="logo-text" x="330" y="135">MPASS</text>
+  
+  <style>
+    .logo-text {
+      font-family: sans-serif;
+      font-weight: 900;
+      font-size: 140px;
+      fill: #3fb185;
+      stroke: #3fb185;
+      stroke-width: 1px;
+      paint-order: stroke fill;
+      dominant-baseline: middle;
+    }
+    .needle {
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+      animation: rotate-needle 8s ease-in-out infinite;
+    }
+    @keyframes rotate-needle {
+      0%   { transform: rotate(-10deg); }
+      50%  { transform: rotate(180deg); }
+      100% { transform: rotate(-10deg); }
+    }
+  </style>
+</svg>
