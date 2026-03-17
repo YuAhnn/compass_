@@ -121,7 +121,16 @@ export default function NavBar() {
             >
               About
             </Link>
-            <ThemeToggle />
+            <section>
+              <Link
+              href="/create-profile"
+              onClick={handleSideBar}
+              className="hover:underline rounded-full px-5 py-2 text-sm font-medium text-neutral hover:text-primary transition"
+              >
+                sign-in
+              </Link>
+               <ThemeToggle />
+            </section>
           </div>
         </nav>
       </aside>
