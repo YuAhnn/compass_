@@ -2,7 +2,7 @@
 
 import { z } from "zod"
 import { useState, useEffect, useRef } from "react"
-import { isNicknameTaken, saveNickname } from "lib/profiles/actions"
+import { isNicknameTaken, saveNickname } from "lib/profile/actions"
 import DiceBear from "components/ui/DiceBear"
 
 const schema = z.string().min(3).max(24).regex(/^[a-zA-Z0-9_ ]+$/)
