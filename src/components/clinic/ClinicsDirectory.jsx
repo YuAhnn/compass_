@@ -1,7 +1,7 @@
 "use client"
 
 import { useClinicInfo } from "hooks/useClinicInfo"
-import { useState } from "react"
+import Link from 'next/link'
 import ClinicList from "./ClinicList"
 import ClinicHeader from "./ClinicHeader"
 import ClinicMap from "./ClinicMap"
@@ -9,16 +9,15 @@ import ClinicDetails from "./ClinicDetails"
 import ClinicEmpty from "./ClinicIsEmpty"
 import { Info, ChevronLeft } from "lucide-react"
 
-export default function ClinicsDirectory({ basePath = "" }) {
+export default function ClinicsDirectory({ basePath = "", selectedClinic = null }) {
   const { clinics, loading } = useClinicInfo()
-  const [selectedClinic, setSelectedClinic] = useState(null)
 
   return (
     <main className="flex h-full overflow-hidden bg-base-100 relative">
       <div className={`${selectedClinic ? 'hidden md:block' : 'block'} h-full w-full md:w-auto`}>
         <ClinicList 
           clinics={clinics} 
-          onSelect={setSelectedClinic} 
+          basePath={basePath}
           selectedClinic={selectedClinic} 
         />
       </div>
@@ -27,12 +26,12 @@ export default function ClinicsDirectory({ basePath = "" }) {
         {selectedClinic ? (
           <div className="max-w-6xl p-4 md:p-8 mx-auto space-y-4 md:space-y-6 md:slide-in-from-none duration-500">
             <div className="md:hidden">
-              <button 
-                onClick={() => setSelectedClinic(null)}
+              <Link 
+                href={basePath}
                 className="btn btn-ghost btn-sm gap-2 text-primary"
               >
                 <ChevronLeft/> Back
-              </button>
+              </Link>
             </div>
 
             <div className="pb-4 border-b border-base-200">

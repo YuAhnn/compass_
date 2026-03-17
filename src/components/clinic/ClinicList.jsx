@@ -1,8 +1,9 @@
 'use client'
 
 import { MapPin } from 'lucide-react'
+import Link from 'next/link'
 
-export default function ClinicList({ clinics, onSelect, selectedClinic }) {
+export default function ClinicList({ clinics, basePath, selectedClinic }) {
   return (
     <aside className="flex flex-col w-full md:w-80 lg:w-96 h-full border-r border-base-300 bg-base-100 shrink-0">
       <section className="flex-1 overflow-y-auto px-4 py-4 md:py-6 space-y-2">
@@ -11,9 +12,9 @@ export default function ClinicList({ clinics, onSelect, selectedClinic }) {
             const isSelected = selectedClinic?.id === clinic.id
 
             return (
-              <button
+              <Link
                 key={clinic.id}
-                onClick={() => onSelect(clinic)}
+                href={`${basePath}/${clinic.slug}`}
                 className={`flex items-center w-full gap-3 md:gap-4 p-3 md:p-4 text-left transition-all border rounded-xl ${
                   isSelected
                     ? 'bg-primary/10 border border-primary/30 shadow-sm'
@@ -37,7 +38,7 @@ export default function ClinicList({ clinics, onSelect, selectedClinic }) {
                     {clinic.address || 'Location information unavailable'}
                   </p>
                 </div>
-              </button>
+              </Link>
             )
           })
         ) : (
