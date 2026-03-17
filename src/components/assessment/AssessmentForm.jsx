@@ -90,7 +90,8 @@ export default function AssessmentForm({ data, basePath = "" }) {
       const aiFeedback = await generateSupport({
         assessment: assessment.id,
         score,
-        interpretation: label
+        interpretation: label,
+        isGuest,
       })
 
       setResult({ 

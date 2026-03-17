@@ -13,7 +13,7 @@ export default function SignOutButton() {
     setIsLoggingOut(true)
     try {
       await signOut()
-      router.push("/create-profile")
+      router.push("/")
       router.refresh()
     } catch (error) {
       console.error("Error signing out:", error)

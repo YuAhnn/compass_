@@ -1,10 +1,10 @@
 "use server"
 
-import { createClient }      from "lib/supabase/server"
+import { createClient } from "lib/supabase/server"
 import { createAdminClient } from "lib/supabase/admin"
 
 export async function isNicknameTaken(nickname, currentUserId) {
-  const supabase = await createAdminClient()
+  const supabase = await createClient()
   const { data } = await supabase
     .from("profiles")
     .select("id")

@@ -26,7 +26,10 @@ export async function getAllAssessments(client = defaultClient) {
       )
     `)
 
-  if (error) throw new Error(`Failed to fetch assessments: ${error.message}`)
+  if (error) {
+    console.error('getAllAssessments DB error:', error.message)
+    throw new Error('Failed to load assessments. Please try again.')
+  }
 
   return data.map(item => ({
     assessment_id: item.id,
@@ -46,7 +49,10 @@ export async function getAssessmentBySlug(slugOrId, client = defaultClient) {
     .or(`id.eq.${slugOrId},slug.eq.${slugOrId}`)
     .single()
 
-  if (assessmentError) throw new Error(`Assessment not found: ${assessmentError.message}`)
+  if (assessmentError) {
+    console.error('getAssessmentBySlug DB error:', assessmentError.message)
+    throw new Error('Assessment not found.')
+  }
 
   const assessmentId = assessment.id
 
@@ -76,7 +82,10 @@ export async function saveResult(payload) {
     .from("assessment_result")
     .insert({ ...payload, user_id: userId })
 
-  if (error) throw new Error(`Failed to save result: ${error.message}`)
+  if (error) {
+    console.error('saveResult DB error:', error.message)
+    throw new Error('Failed to save result. Please try again.')
+  }
 }
 
 // User delete single assessment
@@ -89,7 +98,10 @@ export async function deleteAssessmentResult(resultId) {
     .eq("id", resultId)
     .eq("user_id", userId)
 
-  if (error) throw new Error(`Failed to delete result: ${error.message}`)
+  if (error) {
+    console.error('deleteAssessmentResult DB error:', error.message)
+    throw new Error('Failed to delete result. Please try again.')
+  }
 }
 
 // User delete all results
@@ -103,7 +115,10 @@ export async function deleteAllUserResults(userId) {
     .delete()
     .eq("user_id", userId)
 
-  if (error) throw new Error(`Failed to delete all results: ${error.message}`)
+  if (error) {
+    console.error('deleteAllUserResults DB error:', error.message)
+    throw new Error('Failed to delete results. Please try again.')
+  }
 }
 
 //Fetch all results for a user
@@ -124,7 +139,10 @@ export async function getUserAssessmentResults(userId, client = defaultClient) {
     .eq("user_id", userId)
     .order("created_at", { ascending: false })
 
-  if (error) throw new Error(`Failed to fetch user results: ${error.message}`)
+  if (error) {
+    console.error('getUserAssessmentResults DB error:', error.message)
+    throw new Error('Failed to load your results. Please try again.')
+  }
 
   return data.map(result => ({
     result_id: result.id,
