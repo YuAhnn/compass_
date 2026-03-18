@@ -5,10 +5,12 @@ import AboutSection from '@components/section/AboutSection'
 import Compass from '@components/ui/Compass'
 // import Emoji from '@components/sections/Emoji'
 import Banner from '@components/ui/Banner'
+import Fly from '@components/ui/Fly'
 
 export default function Landing() {
   return(
     <>
+    <Fly/>
     <Banner/>
     <Hero
     title="Understand Your Mind"

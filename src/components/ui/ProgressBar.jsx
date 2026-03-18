@@ -1,5 +1,5 @@
 export default function ProgressBar({ current, total }) {
-  const percentage = Math.round((current / total) * 100)
+  const percentage = Math.round(((current - 1) / total) * 100)
 
   return (
     <main className="mb-8">
