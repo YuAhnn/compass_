@@ -1,7 +1,5 @@
 'use client'
 
-import React from 'react'
-
 export default function AssessmentJournal({ onFinish }) {
   return (
     <main className="card bg-base-100 shadow-xl border border-base-200">

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Menu, X, FileText, FileCheck, UserRoundPlus } from "lucide-react"
-import ThemeToggle from "../ui/ThemeToggle"
+import ThemeToggle from "@components/ui/ThemeToggle"
 
 const NavLinks = [
   { title: "Your page is not done, keep living.", label: "Articles", path: "/article", icon: FileText },

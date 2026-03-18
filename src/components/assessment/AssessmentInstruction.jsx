@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronLeft } from 'lucide-react'
-import { Info, ShieldAlert } from 'lucide-react'
+import { Info, ShieldAlert, ChevronLeft } from 'lucide-react'
 
 export default function AssessmentInstruction({ instructions, onBegin, basePath = "" }) {
   return (
