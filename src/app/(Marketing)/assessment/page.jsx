@@ -1,5 +1,5 @@
-import { getAllAssessments } from 'lib/assessment/queries'
-import AssessmentGrid from 'components/assessment/AssessmentGrid'
+import { getAllAssessments } from '@lib/assessment/queries'
+import AssessmentGrid from '@components/assessment/AssessmentGrid'
 
 export const metadata = {
   title: "Mental Health Self-Assessment | Compass",

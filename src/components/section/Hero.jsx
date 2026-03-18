@@ -1,4 +1,4 @@
-import BackgroundBlur from "components/ui/BackgroundBlur"
+import BackgroundBlur from "@components/ui/BackgroundBlur"
 import Link from "next/link"
 
 export default function Hero({ title, subtitle, description, button, link }) {

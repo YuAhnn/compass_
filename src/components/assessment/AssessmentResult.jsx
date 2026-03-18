@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { supabase } from 'lib/supabase/client'
-import Modal from 'components/ui/Modal'
+import { supabase } from '@lib/supabase/client'
+import Modal from '@components/ui/Modal'
 
 export default function AssessmentResult({
   score,

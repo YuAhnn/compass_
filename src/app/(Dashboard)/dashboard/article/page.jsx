@@ -1,4 +1,4 @@
-import ArticleGrid from "components/article/ArticleGrid"
+import ArticleGrid from "@components/article/ArticleGrid"
 
 export const metadata = {
   title: "Articles | Compass",

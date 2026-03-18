@@ -1,12 +1,12 @@
 "use client"
 
-import { useClinicInfo } from "hooks/useClinicInfo"
+import { useClinicInfo } from "@hooks/useClinicInfo"
 import Link from 'next/link'
-import ClinicList from "./ClinicList"
-import ClinicHeader from "./ClinicHeader"
-import ClinicMap from "./ClinicMap"
-import ClinicDetails from "./ClinicDetails"
-import ClinicEmpty from "./ClinicIsEmpty"
+import ClinicList from "@components/clinic/ClinicList"
+import ClinicHeader from "@components/clinic/ClinicHeader"
+import ClinicMap from "@components/clinic/ClinicMap"
+import ClinicDetails from "@components/clinic/ClinicDetails"
+import ClinicEmpty from "@components/clinic/ClinicIsEmpty"
 import { Info, ChevronLeft } from "lucide-react"
 
 export default function ClinicsDirectory({ basePath = "", selectedClinic = null }) {

@@ -3,9 +3,9 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { LayoutDashboard, Bookmark, ClipboardCheck, Compass, History } from "lucide-react"
-import DiceBear from "components/ui/DiceBear"
-import SignOutButton from "components/auth/SignOutButton"
-import ThemeToggle from "components/ui/ThemeToggle"
+import DiceBear from "@components/ui/DiceBear"
+import SignOutButton from "@components/auth/SignOutButton"
+import ThemeToggle from "@components/ui/ThemeToggle"
 
 const SideLinks = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },

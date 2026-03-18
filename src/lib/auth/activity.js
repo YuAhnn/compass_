@@ -1,5 +1,5 @@
-import { createAdminClient } from "lib/supabase/admin"
-import { createClient } from "lib/supabase/server"
+import { createAdminClient } from "@lib/supabase/admin"
+import { createClient } from "@lib/supabase/server"
 
 export async function logActivity(event, path) {
   const authClient = await createClient()

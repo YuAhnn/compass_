@@ -1,4 +1,4 @@
-import { getGuestMessage } from 'lib/assessment/staticMessages'
+import { getGuestMessage } from '@lib/assessment/staticMessages'
 
 export async function generateSupport({ assessment, score, interpretation, isGuest = false }) {
 

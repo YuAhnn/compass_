@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { supabase } from "lib/supabase/client"
-import NicknameForm from "components/auth/NicknameForm"
+import { supabase } from "@lib/supabase/client"
+import NicknameForm from "@components/auth/NicknameForm"
 import Link from "next/link"
 
 export default function SignInPage() {

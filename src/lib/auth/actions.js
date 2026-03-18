@@ -1,5 +1,5 @@
-import { createClient } from "lib/supabase/server"
-import { createAdminClient } from "lib/supabase/admin"
+import { createClient } from "@lib/supabase/server"
+import { createAdminClient } from "@lib/supabase/admin"
 
 export async function getOrCreateProfile() {
   const authClient = await createClient()

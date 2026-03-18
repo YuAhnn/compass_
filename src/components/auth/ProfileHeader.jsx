@@ -1,4 +1,4 @@
-import DiceBear from "components/ui/DiceBear"
+import DiceBear from "@components/ui/DiceBear"
 
 export default function ProfileHeader({ nickname }) {
   return (

@@ -1,4 +1,4 @@
-import { createClient } from "lib/supabase/client";
+import { createClient } from "@lib/supabase/client";
 //Anon
 export const signInAnonymously = async () => {
   const supabase = createClient()

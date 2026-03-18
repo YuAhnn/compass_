@@ -1,8 +1,8 @@
 "use server"
 
-import { createAdminClient } from "lib/supabase/admin"
-import { supabase as defaultClient } from "lib/supabase/client"
-import { createClient } from "lib/supabase/server"
+import { createAdminClient } from "@lib/supabase/admin"
+import { supabase as defaultClient } from "@lib/supabase/client"
+import { createClient } from "@lib/supabase/server"
 
 export async function getUserId() {
   const authClient = await createClient()

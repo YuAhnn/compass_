@@ -3,7 +3,7 @@ export const metadata = {
   description: "Assistance",
 }
 
-import ClinicsDirectory from "components/clinic/ClinicsDirectory"
+import ClinicsDirectory from "@components/clinic/ClinicsDirectory"
 
 export default function AssistancePage() {
   return (

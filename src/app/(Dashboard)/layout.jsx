@@ -1,5 +1,5 @@
-import { getOrCreateProfile } from "lib/auth/actions"
-import SideBar from "components/dashboard/SideBar"
+import { getOrCreateProfile } from "@lib/auth/actions"
+import SideBar from "@components/dashboard/SideBar"
 
 export default async function DashboardLayout({ children }) {
   const profile = await getOrCreateProfile()

@@ -1,5 +1,5 @@
-import { createClient } from 'lib/supabase/server'
-import { generateSupportFeedback } from 'lib/assessment/message'
+import { createClient } from '@lib/supabase/server'
+import { generateSupportFeedback } from '@lib/assessment/message'
 
 export async function POST(req) {
   const supabase = await createClient()

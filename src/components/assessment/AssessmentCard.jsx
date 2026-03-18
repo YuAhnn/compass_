@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Modal from 'components/ui/Modal'
+import Modal from '@components/ui/Modal'
 import { Info, Shield } from "lucide-react"
 
 export default function AssessmentCard({ data, basePath = "" }) {

@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { getPaginatedArticles } from "lib/article/queries"
+import { getPaginatedArticles } from "@lib/article/queries"
 import ArticleCard from "./ArticleCard"
-import Pagination from "components/ui/Pagination"
+import Pagination from "@components/ui/Pagination"
 import Link from "next/link"
-import ArticleSkeleton from 'components/article/ArticleSkeleton'
+import ArticleSkeleton from '@components/article/ArticleSkeleton'
 
 const ARTICLES_PER_PAGE = 6
 

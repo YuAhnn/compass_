@@ -1,6 +1,6 @@
-import { getAllAssessments } from 'lib/assessment/queries'
-import AssessmentGrid from 'components/assessment/AssessmentGrid'
-import AssessmentSkeleton from 'components/assessment/AssessmentSkeleton'
+import { getAllAssessments } from '@lib/assessment/queries'
+import AssessmentGrid from '@components/assessment/AssessmentGrid'
+import AssessmentSkeleton from '@components/assessment/AssessmentSkeleton'
 
 export const metadata = {
   title: "Assessment | Compass",

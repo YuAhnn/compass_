@@ -1,10 +1,10 @@
 'use client'
 
-import { signInAnonymously, signInWithGoogle } from "lib/auth/auth";
-import { supabase } from "lib/supabase/client";
+import { signInAnonymously, signInWithGoogle } from "@lib/auth/auth";
+import { supabase } from "@lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Divider from "components/ui/Divider";
+import Divider from "@components/ui/Divider";
 import { HatGlasses, UserRoundKey } from "lucide-react";
 import Link from "next/link";
 

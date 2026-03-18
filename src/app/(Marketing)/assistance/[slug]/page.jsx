@@ -1,5 +1,5 @@
-import ClinicsDirectory from "components/clinic/ClinicsDirectory"
-import { getClinicBySlug } from "lib/clinic/clinicInfo"
+import ClinicsDirectory from "@components/clinic/ClinicsDirectory"
+import { getClinicBySlug } from "@lib/clinic/clinicInfo"
 
 export const metadata = {
   title: "Assistance | Compass",

@@ -1,6 +1,6 @@
 "use server"
 
-import { getOrCreateProfile } from "lib/auth/actions"
+import { getOrCreateProfile } from "@lib/auth/actions"
 import { redirect } from "next/navigation"
 
 export default async function AdminLayout({ children }) {

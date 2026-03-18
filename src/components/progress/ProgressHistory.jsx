@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Trash2, ShieldAlert } from 'lucide-react'
-import { deleteAssessmentResult, deleteAllUserResults } from 'lib/assessment/queries'
-import Modal from 'components/ui/Modal'
+import { deleteAssessmentResult, deleteAllUserResults } from '@lib/assessment/queries'
+import Modal from '@components/ui/Modal'
 import ProgressIsEmpty from './ProgressIsEmpty'
 import ProgressCard from './ProgressCard'
 

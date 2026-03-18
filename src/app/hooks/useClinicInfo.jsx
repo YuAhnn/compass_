@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { getClinics } from "lib/clinic/clinicInfo"
+import { getClinics } from "@lib/clinic/clinicInfo"
 
 export function useClinicInfo() {
 

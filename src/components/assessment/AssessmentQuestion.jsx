@@ -1,7 +1,7 @@
 'use client'
 
 import { ChevronLeft } from 'lucide-react'
-import ProgressBar from 'components/ui/ProgressBar'
+import ProgressBar from '@components/ui/ProgressBar'
 
 export default function AssessmentQuestion({ 
   currentQuestion, 

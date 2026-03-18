@@ -1,7 +1,7 @@
-import { createClient } from "lib/supabase/server"
+import { createClient } from "@lib/supabase/server"
 import { redirect } from "next/navigation"
-import Profile from "components/dashboard/Profile"
-import IsAdminBtn from "components/admin/IsAdminBtn"
+import Profile from "@components/dashboard/Profile"
+import IsAdminBtn from "@components/admin/IsAdminBtn"
 
 export default async function DashboardPage() {
   const supabase = await createClient()

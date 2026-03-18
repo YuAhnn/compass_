@@ -1,6 +1,6 @@
-import { getOrCreateProfile } from "lib/auth/actions"
-import { logActivity } from "lib/auth/activity"
-import DiceBear from "components/ui/DiceBear"
+import { getOrCreateProfile } from "@lib/auth/actions"
+import { logActivity } from "@lib/auth/activity"
+import DiceBear from "@components/ui/DiceBear"
 
 export default async function Profile() {
   const profile = await getOrCreateProfile()

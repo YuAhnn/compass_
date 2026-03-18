@@ -1,5 +1,5 @@
-import { getAssessmentBySlug } from 'lib/assessment/queries'
-import AssessmentForm from 'components/assessment/AssessmentForm'
+import { getAssessmentBySlug } from '@lib/assessment/queries'
+import AssessmentForm from '@components/assessment/AssessmentForm'
 
 export default async function DashboardAssessmentPage({ params }) {
   const { slug } = await params

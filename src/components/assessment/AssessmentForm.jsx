@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { calculateScore, interpretScore } from 'lib/assessment/scoring'
-import { supabase } from 'lib/supabase/client'
-import { saveResult } from 'lib/assessment/queries'
+import { calculateScore, interpretScore } from '@lib/assessment/scoring'
+import { supabase } from '@lib/supabase/client'
+import { saveResult } from '@lib/assessment/queries'
 import { ShieldAlert } from 'lucide-react'
-import Modal from 'components/ui/Modal'
+import Modal from '@components/ui/Modal'
 import AssessmentTimeline from './AssessmentTimeline'
 import AssessmentInstruction from './AssessmentInstruction'
 import AssessmentQuestion from './AssessmentQuestion'
 import AssessmentResultView from './AssessmentResultView'
 import AssessmentMap from './AssessmentJournal'
 import AssessmentResultLoading from './AssessmentResultLoading'
-import { generateSupport } from 'lib/assessment/support'
+import { generateSupport } from '@lib/assessment/support'
 
 export default function AssessmentForm({ data, basePath = "" }) {
   const { assessment, scales, scoring, interpretation, questions, instructions } = data

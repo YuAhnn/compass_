@@ -1,7 +1,7 @@
-import { getOrCreateProfile } from "lib/auth/actions"
-import { createClient} from "lib/supabase/server"
-import { getUserAssessmentResults } from "lib/assessment/queries"
-import ProgressHistory from "components/progress/ProgressHistory"
+import { getOrCreateProfile } from "@lib/auth/actions"
+import { createClient} from "@lib/supabase/server"
+import { getUserAssessmentResults } from "@lib/assessment/queries"
+import ProgressHistory from "@components/progress/ProgressHistory"
 
 export const metadata = {
     title: "Progress | Compass",

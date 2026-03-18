@@ -1,10 +1,10 @@
-import Hero from 'components/section/Hero'
-import BentoGrid from 'components/section/BentoGrid'
-import Divider from 'components/ui/Divider'
-import AboutSection from 'components/section/AboutSection'
-import Compass from 'components/ui/Compass'
-// import Emoji from 'components/sections/Emoji'
-import Banner from 'components/ui/Banner'
+import Hero from '@components/section/Hero'
+import BentoGrid from '@components/section/BentoGrid'
+import Divider from '@components/ui/Divider'
+import AboutSection from '@components/section/AboutSection'
+import Compass from '@components/ui/Compass'
+// import Emoji from '@components/sections/Emoji'
+import Banner from '@components/ui/Banner'
 
 export default function Landing() {
   return(

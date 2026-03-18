@@ -4,7 +4,7 @@ import { ChevronLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import ReactMarkDown from "react-markdown"
 import remarkGfm from "remark-gfm"
-import { MarkdownComponents } from "components/ui/ArticleMarkdown"
+import { MarkdownComponents } from "@components/ui/ArticleMarkdown"
 
 export default function ArticleContent({ article }) {
   const router = useRouter()

@@ -1,5 +1,5 @@
-import ArticleContent from "components/article/ArticleContent"
-import { getArticleBySlug } from "lib/article/queries"
+import ArticleContent from "@components/article/ArticleContent"
+import { getArticleBySlug } from "@lib/article/queries"
 
 export default async function ArticlePage({ params }) {
   const { slug } = await params

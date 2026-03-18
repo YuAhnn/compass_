@@ -1,5 +1,5 @@
 import { Phone, Globe, Info } from 'lucide-react'
-import ClinicIsEmpty from './ClinicIsEmpty'
+import ClinicIsEmpty from '@components/clinic/ClinicIsEmpty'
 
 export default function ClinicDetails({ clinic }) {
   if (!clinic) return <ClinicIsEmpty />
