@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} antialiased`}
+        style={{ transition: "background-color 0.2s ease, color 0.2s ease" }}
       >
         <Providers>{children}</Providers>
       </body>

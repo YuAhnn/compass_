@@ -6,7 +6,7 @@ export default function Footer() {
   return (   
   <>
   <Divider/>
-  <footer className="flex justify-center items-center w-full bg-base-300/70 rounded-2xl">
+  <footer className="flex justify-center items-center w-full bg-base-100 rounded-2xl">
     <footer className="footer sm:footer-horizontal text-base-content p-10 flex justify-between max-w-4xl">
     <nav>
       <h6 className="footer-title">PLATFORM</h6>
@@ -35,7 +35,7 @@ export default function Footer() {
       <Divider/>
     </div>
 
-    <footer className="footer footer-center p-4 bg-base-300/70 text-base-content rounded-2xl">
+    <footer className="footer footer-center p-4 bg-base-100 text-base-content rounded-2xl">
       <aside className="text-xs">
         <img src="/logo.svg" alt="Logo" className="h-6 w-auto"/>
         <p>Copyright © 2025 - {new Date().getFullYear()} | All rights reserved</p>

@@ -6,18 +6,18 @@ export default function ProgressBar({ current, total }) {
       <section className="flex justify-end text-sm opacity-60 mb-2">
         <span>{percentage}%</span>
       </section>
-      {/* 
-      <progress
-        className="w-full h-4 bg-gray-200 rounded-full overflow-hidden"
-        value={percentage}
-        max="100"
-      /> */}
+
       <section className="h-3 bg-gray-200 rounded-full w-full overflow-hidden">
         <div
-          className="progress-fill"
-          style={{ width: `${percentage}%` }}
+        style={{
+          height: '100%',
+          background: 'var(--color-primary)',
+          borderRadius: '100px',
+          transition: 'width 0.5s ease-in-out',
+          width: `${percentage}%`
+        }}
         />
-      </section>
+        </section>
     </main>
   )
 }
