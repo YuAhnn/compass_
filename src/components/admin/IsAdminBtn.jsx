@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { SquareTerminal } from "lucide-react"
+
 export default function IsAdminBtn( { isAdmin } ) {
   return(
     <>
