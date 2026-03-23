@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Providers from "./providers";
+import Providers from "./theme/providers";
 
 const inter = Inter({
   variable: "--font-inter",

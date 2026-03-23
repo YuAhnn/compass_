@@ -5,7 +5,7 @@ export async function generateSupport({ assessment, score, interpretation, isGue
   if (isGuest) return getGuestMessage(interpretation)
 
   try {
-    const response = await fetch('/api/compassion', {
+    const response = await fetch('/api/ai', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ assessment, score, interpretation }),

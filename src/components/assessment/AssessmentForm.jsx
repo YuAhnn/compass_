@@ -73,7 +73,8 @@ export default function AssessmentForm({ data, basePath = "" }) {
       const currentAnswers = finalAnswers || answers
       const score = calculateScore({
         answers: currentAnswers,
-        scoringConfig: scoring
+        scoringConfig: scoring,
+        scales: scales
       })
       const label = interpretScore(score, interpretation)
 

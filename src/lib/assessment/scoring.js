@@ -1,31 +1,31 @@
-export function calculateScore({
-  answers,
-  scoringConfig
-}) {
+export function calculateScore({ answers, scoringConfig, scales }) {
   const { method, reverse_items } = scoringConfig
 
-  const processed = answers.map((val, index) => {
-    if (reverse_items?.includes(index + 1)) {
-      return scoringConfig.scale_max + scoringConfig.scale_min - val
-    }
-    return val
+  let max = 0
+  let min = 0
+  // Get highest and lowest possible scale values
+  if (scales && scales.length > 0) {
+    const values = scales.map(s => s.value)
+    max = Math.max(...values)
+    min = Math.min(...values)
+  }
+  // Reverse-scored items formula: (max + min - answer)
+  const adjustedAnswers = answers.map((answer, index) => {
+    const isReverse = reverse_items?.includes(index + 1)
+    return isReverse ? (max + min - answer) : answer
   })
 
-  if (method === 'sum') {
-    return processed.reduce((a, b) => a + b, 0)
-  }
+  const total = adjustedAnswers.reduce((sum, val) => sum + val, 0)
 
-  if (method === 'mean') {
-    const total = processed.reduce((a, b) => a + b, 0)
-    return total / processed.length
-  }
+  if (method === 'sum') return total                        
+  if (method === 'mean') return total / adjustedAnswers.length 
 
   return 0
 }
-
+// Find: Matching interpretation to given score/total.
 export function interpretScore(score, ranges) {
-  const match = ranges.find(
-    r => score >= r.min_score && score <= r.max_score
+  const result = ranges.find(
+    range => score >= range.min_score && score <= range.max_score
   )
-  return match?.label || 'No interpretation available'
+  return result?.label ?? 'No interpretation available'
 }

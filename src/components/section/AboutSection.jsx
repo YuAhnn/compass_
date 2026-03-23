@@ -29,7 +29,7 @@ export default function AboutSection() {
                 </Link>
             </div>
              <div className="relative mt-30 sm:mt-20 md:mt-0 lg:mt-0  flex justify-center items-center">
-                <img src='./compass-about.png' alt="Compass" className="relative z-20 cursor-pointer w-100 sm:w-100 md:w-100 lg:w-100 xl:w-100 
+                <img src='./compassion.png' alt="Compass" className="relative z-20 cursor-pointer w-80 sm:w-100 md:w-100 lg:w-87.5 xl:w-100 
                 transition-transform duration-300 hover:scale-105"/>
             </div>
         </div>
