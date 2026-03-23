@@ -19,32 +19,32 @@ export default function Grid() {
             <div className="card hover:shadow-md transition-all border border-neutral/20 group">
               <div className="card-body items-center text-center">
                 <span className="badge badge-lg badge-primary group-hover:badge-accent font-bold h-10 w-10 rounded-full transition-all duration-300">1</span>
-                <h2 className="card-title mt-2">Take Assessment</h2>
-                <p className="text-sm opacity-70">Answer a few questions about your current state of mind.</p>
+                <h2 className="card-title mt-2">Choose & Reflect</h2>
+                <p className="text-sm opacity-70">Select an assessment and answer questions about your current state.</p>
               </div>
             </div>
             
             <div className="card hover:shadow-md transition-all border border-neutral/20 group">
               <div className="card-body items-center text-center">
                 <span className="badge badge-lg badge-primary group-hover:badge-accent font-bold h-10 w-10 rounded-full transition-all duration-300">2</span>
-                <h2 className="card-title mt-2">Review Insights</h2>
-                <p className="text-sm opacity-70">Get immediate feedback and understand your patterns.</p>
+                <h2 className="card-title mt-2">Understand Your Patterns</h2>
+                <p className="text-sm opacity-70">See your emotional patterns and notice what repeats.</p>
               </div>
             </div>
             
             <div className="card hover:shadow-md transition-all border border-neutral/20 group">
               <div className="card-body items-center text-center">
                 <span className="badge badge-lg badge-primary group-hover:badge-accent font-bold h-10 w-10 rounded-full transition-all duration-300">3</span>
-                <h2 className="card-title mt-2">Supportive Feedback</h2>
-                <p className="text-sm opacity-70">AI Companion</p>
+                <h2 className="card-title mt-2">Self-Reflection</h2>
+                <p className="text-sm opacity-70">Discover insights about yourself through the assessment results.</p>
               </div>
             </div>
             
             <div className="card hover:shadow-md transition-all border border-neutral/20 group">
               <div className="card-body items-center text-center">
                 <span className="badge badge-lg badge-primary group-hover:badge-accent font-bold h-10 w-10 rounded-full transition-all duration-300">4</span>
-                <h2 className="card-title mt-2">Track Progress</h2>
-                <p className="text-sm opacity-70">Monitor your well-being trends over time with regular check-ins.</p>
+                <h2 className="card-title mt-2">See Your Growth</h2>
+                <p className="text-sm opacity-70">Monitor your well-being trends.</p>
               </div>
             </div>
             

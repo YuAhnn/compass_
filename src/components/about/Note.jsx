@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Note() {
     return(
-     <main className="max-w-4xl mx-auto min-h-[70vh] mb-15">
+     <main className="max-w-4xl mx-auto min-h-[70vh] mb-12">
         <section className="grid grid-cols-1 md:grid-cols-2 gap-x-15">         
             <div className="flex flex-col justify-evenly">
                 <div>
