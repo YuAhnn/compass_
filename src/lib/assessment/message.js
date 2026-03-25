@@ -3,36 +3,42 @@ import { Groq } from 'groq-sdk'
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
 const INTRODUCTIONS = [
-  "You can start with something simple like, 'Hey, I hear you.'",
-  "Maybe begin with a small, warm observation about what they’re going through.",
-  "You might open by gently acknowledging their situation.",
-  "Start with a calm line that helps them feel a bit grounded.",
-  "You can begin with a soft message that gives a little hope.",
-  "Maybe start by noticing the feeling, without putting too strong a label on it.",
-  "Open with a simple but sincere affirmation for them."
+  "Start with something simple like 'Hey, I hear you.'",
+  "Say a small, warm observation about what they’re feeling.",
+  "Gently acknowledge their situation.",
+  "Use a calm line to help them feel grounded.",
+  "Share a soft message that offers a little hope.",
+  "Notice the feeling without labeling it too strongly.",
+  "Give a simple, sincere affirmation.",
+  "Offer a friendly check-in.",
+  "Start with a short comforting line.",
+  "Keep it warm and kind."
 ]
 
 function makePrompt(assessment, score, interpretation) {
   const introduction = INTRODUCTIONS[Math.floor(Math.random() * INTRODUCTIONS.length)]
 
-  return `The user just completed: ${assessment} 
-          Their interpretation: ${interpretation} 
+  return `The user finished a mental health questionnaire (e.g., PHQ-9, GAD-7, PSS, etc.): ${assessment}
+          Interpretation: ${interpretation}
           Score: ${score}
-          Understand support level from interpretation:
-          Based on how they are doing, adjust your presence:
-          - If they are doing okay (Low): Keep it chill. No need to overdo the comfort. Maybe just a small check-in like “good to see you’re doing alright” or just a simple high-five vibe.
-          - If they are a little off but still managing (Mild): Be a bit more present. A simple “I get you” or “that makes sense” can go a long way. Just keep it light and supportive, like someone sitting beside them for a while.
-          - If they are feeling the weight (Moderate): Lean in a little. Let them know life can really get heavy sometimes. You don’t have to fix anything. Just stay there with them, like standing beside them while it’s raining, and remind them it’s normal to feel that way.
-          - If they are in the deep end (High): Be a steady presence. Don’t rush with positive words that might feel forced. Acknowledge that the pain is real and heavy. Sometimes just being quiet but present is already big help. If the moment feels right, gently remind them they don’t have to carry everything alone.
-          Use this style: ${introduction}
-          Follow these rules:
-          - Don’t mention scores, assessments, or results
-          - No medical advice
-          - Be calm, kind, and gentle
-          - Use simple everyday words
-          - Keep it under 70 words`
-}
 
+          Adjust your tone:
+
+          - Low: Keep it light, chill, friendly.
+          - Mild: Be present, simple “I get you” tone.
+          - Moderate: Stay with them, acknowledge it feels heavy.
+          - High: Be calm, steady, real. No forced positivity. Remind they’re worth and loved.
+
+          Use this style: ${introduction}
+
+          Rules:
+          - Don’t mention score or test
+          - No medical tone
+          - Be kind and natural
+          - Use simple English
+          - Keep under 70 words`
+}
+//FUNCTION TO GENERATE SUPPORT FEEDBACK
 export async function generateSupportFeedback(assessment, score, interpretation) {
   try {
     const chatCompletion = await groq.chat.completions.create({
@@ -62,3 +68,4 @@ export async function generateSupportFeedback(assessment, score, interpretation)
       return `I’m sorry, I am having some technical difficulties at the moment, but please know that you're not alone.`
   }
 }
+//FUNCTION TO RECOMMENDED NEXT STEP

@@ -11,8 +11,8 @@ import AssessmentTimeline from './AssessmentTimeline'
 import AssessmentInstruction from './AssessmentInstruction'
 import AssessmentQuestion from './AssessmentQuestion'
 import AssessmentResultView from './AssessmentResultView'
-import AssessmentMap from './AssessmentJournal'
 import AssessmentResultLoading from './AssessmentResultLoading'
+import AssessmentRecommendation from './AssessmentRecommendation'
 import { generateSupport } from '@lib/assessment/support'
 
 export default function AssessmentForm({ data, basePath = "" }) {
@@ -158,7 +158,7 @@ export default function AssessmentForm({ data, basePath = "" }) {
         )}
 
         {currentStep === 4 && (
-          <AssessmentMap onFinish={handleFinish} />
+          <AssessmentRecommendation onFinish={handleFinish} />
         )}
       </div>
 
