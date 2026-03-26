@@ -111,24 +111,24 @@ export default function AssessmentForm({ data, basePath = "" }) {
   }
 
   const handleResultContinue = async () => {
-    if (isGuest) {
-      setShowSaveModal(true)
-    } else {
-      setLoadingRecommendations(true)
-      const recs = await generateRecommendation({
-        assessment: assessment.id,
-        score: result.score,
-        interpretation: result.label,
-        isGuest,
-      })
-      setRecommendations(recs)
-      setLoadingRecommendations(false)
-      setCurrentStep(4)
-    }
+    setLoadingRecommendations(true)
+    const recs = await generateRecommendation({
+      assessment: assessment.id,
+      score: result.score,
+      interpretation: result.label,
+      isGuest,
+    })
+    setRecommendations(recs)
+    setLoadingRecommendations(false)
+    setCurrentStep(4)
   }
 
   const handleFinish = () => {
-    router.push(basePath || '/')
+    if (isGuest) {
+      setShowSaveModal(true)
+    } else {
+      router.push(basePath || '/')
+    }
   }
 
   if (loading) return <AssessmentResultLoading />
@@ -192,7 +192,7 @@ export default function AssessmentForm({ data, basePath = "" }) {
             </button>
             <button 
               className="btn btn-ghost btn-md rounded-full w-full"
-              onClick={() => router.push('/assessment')}
+              onClick={() => router.push(basePath || '/')}
             >
               Continue Without Saving
             </button>

@@ -1,4 +1,5 @@
 import { getGuestMessage } from '@lib/assessment/staticMessages'
+import { getGuestRecommendation } from '@lib/assessment/staticRecommendation'
 
 export async function generateSupport({ assessment, score, interpretation, isGuest = false }) {
 
@@ -22,7 +23,7 @@ export async function generateSupport({ assessment, score, interpretation, isGue
 }
 
 export async function generateRecommendation({ assessment, score, interpretation, isGuest = false }) {
-  if (isGuest) return null
+  if (isGuest) return getGuestRecommendation(interpretation)
 
   try {
     const response = await fetch('/api/ai/recommendations', {
@@ -37,6 +38,6 @@ export async function generateRecommendation({ assessment, score, interpretation
     return data.recommendations
   } catch (error) {
     console.error('Failed to generate recommendations', error)
-    return null
+    return getGuestRecommendation(interpretation)
   }
 }
