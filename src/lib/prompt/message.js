@@ -1,6 +1,4 @@
-import { Groq } from 'groq-sdk'
-
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
+import groq  from '@lib/api/ai'
 
 const INTRODUCTIONS = [
   "Start with something simple like 'Hey, I hear you.'",
@@ -68,4 +66,3 @@ export async function generateSupportFeedback(assessment, score, interpretation)
       return `I’m sorry, I am having some technical difficulties at the moment, but please know that you're not alone.`
   }
 }
-//FUNCTION TO RECOMMENDED NEXT STEP

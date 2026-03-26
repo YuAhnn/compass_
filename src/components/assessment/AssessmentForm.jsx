@@ -13,7 +13,7 @@ import AssessmentQuestion from './AssessmentQuestion'
 import AssessmentResultView from './AssessmentResultView'
 import AssessmentResultLoading from './AssessmentResultLoading'
 import AssessmentRecommendation from './AssessmentRecommendation'
-import { generateSupport } from '@lib/assessment/support'
+import { generateSupport, generateRecommendation } from '@lib/assessment/support'
 
 export default function AssessmentForm({ data, basePath = "" }) {
   const { assessment, scales, scoring, interpretation, questions, instructions } = data
@@ -23,6 +23,8 @@ export default function AssessmentForm({ data, basePath = "" }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
+  const [recommendations, setRecommendations] = useState(null)
+  const [loadingRecommendations, setLoadingRecommendations] = useState(false)
   const [showSaveModal, setShowSaveModal] = useState(false)
   const [isGuest, setIsGuest] = useState(true)
   const router = useRouter()
@@ -108,10 +110,19 @@ export default function AssessmentForm({ data, basePath = "" }) {
     }
   }
 
-  const handleResultContinue = () => {
+  const handleResultContinue = async () => {
     if (isGuest) {
       setShowSaveModal(true)
     } else {
+      setLoadingRecommendations(true)
+      const recs = await generateRecommendation({
+        assessment: assessment.id,
+        score: result.score,
+        interpretation: result.label,
+        isGuest,
+      })
+      setRecommendations(recs)
+      setLoadingRecommendations(false)
       setCurrentStep(4)
     }
   }
@@ -158,7 +169,12 @@ export default function AssessmentForm({ data, basePath = "" }) {
         )}
 
         {currentStep === 4 && (
-          <AssessmentRecommendation onFinish={handleFinish} />
+          <AssessmentRecommendation
+            recommendations={recommendations}
+            interpretation={result?.label}
+            loading={loadingRecommendations}
+            onFinish={handleFinish}
+          />
         )}
       </div>
 
