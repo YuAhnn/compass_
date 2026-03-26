@@ -27,7 +27,7 @@ export default function NotFound() {
         className="btn btn-lg border border-neutral/10"
         >
           <Compass size={40} 
-          className='hover:text-primary animate-spin'
+          className='hover:text-primary'
           style={{ animation: "spin 8s linear infinite" }}
           />
         </Link>
