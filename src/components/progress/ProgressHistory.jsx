@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trash2, ShieldAlert } from 'lucide-react'
+import { Trash2 } from 'lucide-react'
 import { deleteAssessmentResult, deleteAllUserResults } from '@lib/assessment/queries'
 import Modal from '@components/ui/Modal'
 import ProgressIsEmpty from './ProgressIsEmpty'
@@ -73,29 +73,24 @@ export default function ProgressHistory({ results = [], userId }) {
         ))}
       </section>
 
-      {/* Single */}
+      {/* Delete single */}
       <Modal
         isOpen={!!deletingId}
         onClose={() => !isProcessing && setDeletingId(null)}
-        title="Delete Record?"
+        size="max-w-sm"
       >
-        <div className="p-4 text-center">
-          <div className="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4 text-error">
-            <ShieldAlert className="w-8 h-8" />
-          </div>
-          <p className="text-sm opacity-70 leading-relaxed mb-6">
-            This action cannot be undone. This specific assessment record will be permanently removed from your history.
-          </p>
-          <div className="flex gap-3">
-            <button 
-              className="flex-1 btn btn-ghost rounded-full"
+        <div className="px-2">
+          <p className="text-sm opacity-60 mb-6">This record will be permanently deleted.</p>
+          <div className="flex gap-2">
+            <button
+              className="flex-1 btn btn-ghost btn-sm rounded-full"
               onClick={() => setDeletingId(null)}
               disabled={isProcessing}
             >
               Cancel
             </button>
-            <button 
-              className="flex-1 btn btn-error rounded-full"
+            <button
+              className="flex-1 btn btn-sm rounded-full bg-primary text-white border-0 hover:bg-error/80"
               onClick={() => handleDelete(deletingId)}
               disabled={isProcessing}
             >
@@ -105,34 +100,30 @@ export default function ProgressHistory({ results = [], userId }) {
         </div>
       </Modal>
 
-      {/* Delte All */}
+      {/* Delete all */}
       <Modal
         isOpen={showClearAllModal}
         onClose={() => !isProcessing && setShowClearAllModal(false)}
-        title="Clear All History?"
+        size="max-w-sm"
       >
-        <div className="p-4 text-center">
-          <div className="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4 text-error">
-            <ShieldAlert className="w-8 h-8" />
-          </div>
-          <p className="font-bold text-lg mb-2">Are you absolutely sure?</p>
-          <p className="text-sm opacity-70 leading-relaxed mb-8">
-            You are about to delete <strong>{results.length}</strong> records. This will completely reset your progress tracking and this data cannot be recovered.
+        <div className="px-2">
+          <p className="text-sm opacity-60 mb-6">
+            {results.length} {results.length === 1 ? 'record' : 'records'} will be permanently deleted.
           </p>
-          <div className="flex flex-col gap-3">
-            <button 
-              className={`btn btn-error rounded-full w-full ${isProcessing ? 'loading' : ''}`}
-              onClick={handleClearAll}
-              disabled={isProcessing}
-            >
-              Yes, Clear Everything
-            </button>
-            <button 
-              className="btn btn-ghost rounded-full w-full"
+          <div className="flex gap-2">
+            <button
+              className="flex-1 btn btn-ghost btn-sm rounded-full"
               onClick={() => setShowClearAllModal(false)}
               disabled={isProcessing}
             >
-              Nevermind, Keep It
+              Cancel
+            </button>
+            <button
+              className="flex-1 btn btn-sm rounded-full bg-primary text-white border-0 hover:bg-error/80"
+              onClick={handleClearAll}
+              disabled={isProcessing}
+            >
+              Clear all
             </button>
           </div>
         </div>

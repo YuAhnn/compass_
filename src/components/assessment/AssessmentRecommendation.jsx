@@ -67,7 +67,7 @@ export default function AssessmentRecommendation({ recommendations, loading, onF
 
         {/* SMALL ACTIONS */}
         {activities?.length > 0 && (
-          <div>
+          <div> 
             <h3 className="text-xs font-black tracking-widest text-primary mb-3">
               TRY THESE ACTIVITIES
             </h3>
