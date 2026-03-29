@@ -15,11 +15,7 @@ export async function POST(req) {
   try {
     const { assessment, score, interpretation } = await req.json()
 
-    const message = await generateSupportFeedback(
-      assessment,
-      score,
-      interpretation
-    )
+    const message = await generateSupportFeedback(assessment, score, interpretation)
 
     return new Response(JSON.stringify({ message }), {
       status: 200,

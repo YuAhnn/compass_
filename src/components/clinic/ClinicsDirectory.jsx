@@ -7,7 +7,7 @@ import ClinicHeader from "@components/clinic/ClinicHeader"
 import ClinicMap from "@components/clinic/ClinicMap"
 import ClinicDetails from "@components/clinic/ClinicDetails"
 import ClinicEmpty from "@components/clinic/ClinicIsEmpty"
-import { Info, ChevronLeft } from "lucide-react"
+import { Info, ChevronLeft, CalendarHeart } from "lucide-react"
 
 export default function ClinicsDirectory({ basePath = "", selectedClinic = null }) {
   const { clinics, loading } = useClinicInfo()
@@ -35,7 +35,16 @@ export default function ClinicsDirectory({ basePath = "", selectedClinic = null 
             </div>
 
             <div className="pb-4 border-b border-base-200">
-              <ClinicHeader clinic={selectedClinic} />
+              <ClinicHeader clinic={selectedClinic}>
+                <Link
+                  href={`${basePath}/book?clinic=${selectedClinic.slug}`}
+                  title="Book Appointment | Testing | UI Only"
+                  className="btn btn-sm md:btn-md bg-transparent text-primary dark:border-neutral dark:text-neutral rounded-full shrink-0 hover:border hover:border-primary hover:text-primary transition-all duration-200 ease-in-out flex items-center gap-2"
+                >
+                  <CalendarHeart className="w-4 h-4" />
+                  Book Appointment
+                </Link>
+              </ClinicHeader>
             </div>
 
             {/* Map */}
