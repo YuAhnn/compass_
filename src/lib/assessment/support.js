@@ -6,7 +6,7 @@ export async function generateSupport({ assessment, score, interpretation, isGue
   if (isGuest) return getGuestMessage(interpretation)
 
   try {
-    const response = await fetch('/api/ai', {
+    const response = await fetch('/api/message', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ assessment, score, interpretation }),
@@ -26,7 +26,7 @@ export async function generateRecommendation({ assessment, score, interpretation
   if (isGuest) return getGuestRecommendation(interpretation)
 
   try {
-    const response = await fetch('/api/ai/recommendations', {
+    const response = await fetch('/api/recommendations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ assessment, score, interpretation }),
