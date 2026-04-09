@@ -1,4 +1,4 @@
-import groq  from '@lib/api/ai'
+import groq  from '@lib/service/ai'
 
 const INTRODUCTIONS = [
   "Start with something simple like 'Hey, I hear you.'",

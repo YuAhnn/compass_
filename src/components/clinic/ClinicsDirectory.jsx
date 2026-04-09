@@ -22,7 +22,7 @@ export default function ClinicsDirectory({ basePath = "", selectedClinic = null 
         />
       </div>
 
-      <section className={`flex-1 overflow-y-auto bg-base-200/20 h-full ${!selectedClinic ? 'hidden md:block' : 'block'}`}>
+      <section className={`flex-1 overflow-y-auto h-full ${!selectedClinic ? 'hidden md:block' : 'block'}`}>
         {selectedClinic ? (
           <div className="max-w-6xl p-4 md:p-8 mx-auto space-y-4 md:space-y-6 md:slide-in-from-none duration-500">
             <div className="md:hidden">

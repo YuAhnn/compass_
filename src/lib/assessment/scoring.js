@@ -18,7 +18,6 @@ export function calculateScore({ answers, scoringConfig, scales }) {
   const total = adjustedAnswers.reduce((sum, val) => sum + val, 0)
 
   if (method === 'sum') return total                        
-  if (method === 'mean') return total / adjustedAnswers.length 
 
   return 0
 }

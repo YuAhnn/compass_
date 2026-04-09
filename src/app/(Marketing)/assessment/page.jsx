@@ -1,5 +1,6 @@
 import { getAllAssessments } from '@lib/assessment/queries'
 import AssessmentGrid from '@components/assessment/AssessmentGrid'
+import Header from '@components/ui/Header'
 import { CircleQuestionMark } from 'lucide-react'
 
 export const metadata = {
@@ -13,11 +14,14 @@ export default async function AssessmentPage() {
   return (
     <main className="min-h-screen bg-base-100">
     <div className="p-8">
-      <section className='flex flex-row justify-between'>
-        <h1 className="text-2xl lg:text-4xl font-black mb-6">
-          TAKE A STEP TOWARD CLARITY
-          <div className="h-1.5 w-20 bg-primary mt-2"></div>
-        </h1>
+      <Header
+        title="Take a Step Toward"
+        highlight="Clarity"
+        subtitle="Take the first step toward better mental health."
+        imageSrc="/compass-assessment.png"
+      />
+      <section className='flex flex-row justify-between mt-10 mb-10'>
+        <div className="h-1.5 w-45 bg-primary mt-2"></div>
         <div className="tooltip tooltip-left tooltip-primary">
           <div className="tooltip-content text-white text-justify w-64 p-3 leading-relaxed">
             This test is a tool often used by health professionals to identify potential 

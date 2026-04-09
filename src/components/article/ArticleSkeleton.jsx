@@ -3,11 +3,6 @@ export default function ArticleSkeleton() {
 
   return (
     <>
-    <header className="mb-10">
-      <div className="skeleton h-8 lg:h-10 w-64 lg:w-80 bg-base-content/15"></div>
-      <div className="skeleton h-1.5 w-20 mt-2 bg-base-content/10 rounded-none"></div>
-    </header> 
-
     <main className="grid grid-cols-1 xl:grid-cols-2 gap-10">
       {skeleton.map((_, index) => (
         <section

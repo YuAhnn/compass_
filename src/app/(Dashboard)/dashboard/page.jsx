@@ -2,6 +2,7 @@ import { createClient } from "@lib/supabase/server"
 import { redirect } from "next/navigation"
 import Profile from "@components/dashboard/Profile"
 import IsAdminBtn from "@components/admin/IsAdminBtn"
+import IsProviderBtn from '@components/admin/IsProviderBtn'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -16,6 +17,7 @@ export default async function DashboardPage() {
     .single()
 
   const isAdmin = profiles?.role === 'admin'
+  const isProvider = profiles?.role === 'provider'
 
   return (
     <>
@@ -23,6 +25,7 @@ export default async function DashboardPage() {
         <Profile/>
       </main>
       {isAdmin && <IsAdminBtn isAdmin={isAdmin}/>}
+      {isProvider && <IsProviderBtn isProvider={isProvider}/>}
     </>
   )
 }

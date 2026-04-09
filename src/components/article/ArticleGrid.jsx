@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { getPaginatedArticles } from "@lib/article/queries"
 import ArticleCard from "./ArticleCard"
 import Pagination from "@components/ui/Pagination"
@@ -14,14 +15,27 @@ export default function ArticleGrid({ basePath = "" }) {
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalArticles, setTotalArticles] = useState(0)
+  
+  const searchParams = useSearchParams()
+  const searchQuery = searchParams.get("q") || ""
+  const category = searchParams.get("category") || "All"
 
   const totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE)
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchQuery, category])
 
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true)
-        const { data, count } = await getPaginatedArticles(currentPage, ARTICLES_PER_PAGE)
+        const { data, count } = await getPaginatedArticles({
+          page: currentPage, 
+          pageSize: ARTICLES_PER_PAGE, 
+          searchQuery, 
+          category
+        })
         setArticles(data || [])
         setTotalArticles(count || 0)
       } catch (error) {
@@ -36,7 +50,7 @@ export default function ArticleGrid({ basePath = "" }) {
     if (!loading) {
       window.scrollTo({ top: 0, behavior: "smooth" })
     }
-  }, [currentPage])
+  }, [currentPage, searchQuery, category])
 
   if (loading) {
     return (
@@ -48,14 +62,7 @@ export default function ArticleGrid({ basePath = "" }) {
 
   return (
     <main>
-      <header className="mb-10">
-        <h1 className="text-base-content text-2xl lg:text-4xl font-black uppercase">
-          Featured Articles
-        </h1>
-        <div className="h-1.5 w-20 bg-primary mt-2"></div>
-      </header>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
         {articles.length > 0 ? (
           articles.map((item) => (
             <Link
@@ -74,12 +81,12 @@ export default function ArticleGrid({ basePath = "" }) {
                imagePlaceholder={item.image_url}
                bgColor={item.bg_color}
               />
-            </Link>
+            </Link> 
           ))
         ) : (
-          <div className="col-span-full py-20 text-center bg-base-200 rounded-box">
+          <div className="col-span-full py-20 text-center bg-base-200 rounded-box flex flex-col items-center justify-center">
             <p className="text-neutral-500 font-medium">
-              No articles available at the moment.
+              No articles found.
             </p>
           </div>
         )}

@@ -1,4 +1,4 @@
-import groq  from '@lib/api/ai'
+import groq  from '@lib/service/ai'
 
 function makeRecommendationPrompt(assessment, score, interpretation) {
   return `The user finished a mental health questionnaire (e.g., PHQ-9, GAD-7, PSS, etc.): ${assessment}
