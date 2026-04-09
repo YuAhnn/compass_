@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getUniqueCategories } from "@lib/article/queries"
 import { buildQueryString } from '@lib/article/utils'
 import { ChevronDown } from "lucide-react"
 
-export default function ArticleCategory() {
+function CategoryContent() {
   const currentQuery = useSearchParams()
   const [categories, setCategories] = useState([])
   const router = useRouter()
@@ -66,5 +66,20 @@ export default function ArticleCategory() {
         ))}
       </ul>
     </main>
+  )
+}
+
+export default function ArticleCategory() {
+  return (
+    <Suspense fallback={
+      <main className="w-full">
+        <section className="btn btn-md bg-base-100 border-neutral/20 shadow-sm font-medium w-full flex-nowrap justify-between sm:justify-center pointer-events-none">
+          <span className="truncate text-neutral-400">Category</span>
+          <ChevronDown size={18} className="text-neutral-400 shrink-0"/>
+        </section>
+      </main>
+    }>
+      <CategoryContent />
+    </Suspense>
   )
 }

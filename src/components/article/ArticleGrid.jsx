@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { getPaginatedArticles } from "@lib/article/queries"
 import ArticleCard from "./ArticleCard"
@@ -10,7 +10,7 @@ import ArticleSkeleton from '@components/article/ArticleSkeleton'
 
 const ARTICLES_PER_PAGE = 6
 
-export default function ArticleGrid({ basePath = "" }) {
+function ArticleGridContent({ basePath = "" }) {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
@@ -98,5 +98,17 @@ export default function ArticleGrid({ basePath = "" }) {
         onPageChange={setCurrentPage}
       />
     </main>
+  )
+}
+
+export default function ArticleGrid({ basePath = "" }) {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto max-w-7xl">
+        <ArticleSkeleton />
+      </div>
+    }>
+      <ArticleGridContent basePath={basePath} />
+    </Suspense>
   )
 }
