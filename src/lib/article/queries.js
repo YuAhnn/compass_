@@ -42,7 +42,7 @@ export async function getPaginatedArticles({
     .range(from, to)
 
   if (searchQuery) {
-    queryBuilder = queryBuilder.textSearch("title", searchQuery, { type: "websearch" })
+    queryBuilder = queryBuilder.textSearch("content", searchQuery, { type: "websearch" })
   }
 
   if (category && category !== "All") {
