@@ -38,7 +38,7 @@ export async function getPaginatedArticles({
   let queryBuilder = supabase
     .from("articles")
     .select(fields, { count: "exact" })
-    .order("created_at", { ascending: false })
+    .order("created_at", { ascending: true })
     .range(from, to)
 
   if (searchQuery) {
