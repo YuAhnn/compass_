@@ -24,7 +24,6 @@ export default function AssessmentForm({ data, basePath = "" }) {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [recommendations, setRecommendations] = useState(null)
-  const [loadingRecommendations, setLoadingRecommendations] = useState(false)
   const [showSaveModal, setShowSaveModal] = useState(false)
   const [isGuest, setIsGuest] = useState(true)
   const router = useRouter()
@@ -81,27 +80,41 @@ export default function AssessmentForm({ data, basePath = "" }) {
       const label = interpretScore(score, interpretation)
 
       const { data: { user } } = await supabase.auth.getUser()
-      if (user) {
-        await saveResult({
-          user_id: user.id,
-          assessment_id: assessment.id,
+      
+      const promises = [
+        generateSupport({
+          assessment: assessment.id,
           score,
-          interpretation: label
+          interpretation: label,
+          isGuest,
+        }),
+        generateRecommendation({
+          assessment: assessment.id,
+          score,
+          interpretation: label,
+          isGuest,
         })
+      ]
+
+      if (user) {
+        promises.push(
+          saveResult({
+            user_id: user.id,
+            assessment_id: assessment.id,
+            score,
+            interpretation: label
+          })
+        )
       }
 
-      const aiFeedback = await generateSupport({
-        assessment: assessment.id,
-        score,
-        interpretation: label,
-        isGuest,
-      })
+      const [aiFeedback, recs] = await Promise.all(promises)
 
       setResult({ 
         score, 
         label, 
-        aiFeedback: aiFeedback
+        aiFeedback
       })
+      setRecommendations(recs)
       setCurrentStep(3)
     } catch (error) {
       console.error('Error submitting assessment:', error)
@@ -110,16 +123,7 @@ export default function AssessmentForm({ data, basePath = "" }) {
     }
   }
 
-  const handleResultContinue = async () => {
-    setLoadingRecommendations(true)
-    const recs = await generateRecommendation({
-      assessment: assessment.id,
-      score: result.score,
-      interpretation: result.label,
-      isGuest,
-    })
-    setRecommendations(recs)
-    setLoadingRecommendations(false)
+  const handleResultContinue = () => {
     setCurrentStep(4)
   }
 
@@ -172,7 +176,7 @@ export default function AssessmentForm({ data, basePath = "" }) {
           <AssessmentRecommendation
             recommendations={recommendations}
             interpretation={result?.label}
-            loading={loadingRecommendations}
+            loading={false}
             onFinish={handleFinish}
           />
         )}

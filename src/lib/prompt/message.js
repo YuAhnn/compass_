@@ -22,19 +22,30 @@ function makePrompt(assessment, score, interpretation) {
 
           Adjust your tone:
 
-          - Low: Keep it light, chill, friendly.
-          - Mild: Be present, simple “I get you” tone.
-          - Moderate: Stay with them, acknowledge it feels heavy.
-          - High: Be calm, steady, real. No forced positivity. Remind they’re worth and loved.
+          - Low: light, chill, friendly
+          - Mild: gentle, understanding
+          - Moderate: acknowledge emotional weight
+          - High: calm, steady, real, grounding
 
           Use this style: ${introduction}
 
           Rules:
-          - Don’t mention score or test
-          - No medical tone
-          - Be kind and natural
-          - Use simple English
-          - Keep under 70 words`
+          - Never mention scores, results, tests or labels
+          - Avoid clinical or diagnostic terms
+          - Do not name emotions explicitly (e.g., avoid specific labels)
+          - Use simple, natural language
+          - Keep under 80 words
+          
+          Critical:
+          - Do not ask questions
+          - Do not suggest actions or next steps
+          - Do not invite conversation or sharing
+
+          Instead:
+          - Recognizing the feeling indirectly (e.g., “this feels heavy,” “a lot to carry”)
+          - Normalizing the experience
+          - Offering quiet presence (“I’m here with you”)
+          - Creating a sense of safety without expectation`
 }
 //FUNCTION TO GENERATE SUPPORT FEEDBACK
 export async function generateSupportFeedback(assessment, score, interpretation) {
