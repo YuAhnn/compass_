@@ -36,18 +36,24 @@ export async function generateRecommendation(assessment, score, interpretation) 
       ],
       model: 'llama-3.1-8b-instant',
       temperature: 0.85,
-      max_completion_tokens: 160,
+      max_completion_tokens: 400,
       top_p: 1,
       stream: true,
       stop: null,
+      response_format: { type: 'json_object' }
     })
 
     let fullResponse = ''
     for await (const chunk of chatCompletion) {
       fullResponse += chunk.choices[0]?.delta?.content || ''
     }
+    //
+    const cleanedResponse = fullResponse
+      .replace(/^```(json)?/i, '')
+      .replace(/```$/, '')
+      .trim()
 
-    return JSON.parse(fullResponse.trim())
+    return JSON.parse(cleanedResponse)
   } catch (error) {
     console.error('Groq Recommendations Unavailable:', error.message)
     return null

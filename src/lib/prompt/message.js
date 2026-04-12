@@ -20,12 +20,12 @@ function makePrompt(assessment, score, interpretation) {
           Interpretation: ${interpretation}
           Score: ${score}
 
-          Adjust your tone:
+          Adjust your tone and language based on the severity (${interpretation}):
 
-          - Low: light, chill, friendly
-          - Mild: gentle, understanding
-          - Moderate: acknowledge emotional weight
-          - High: calm, steady, real, grounding
+          - Low: light, chill, friendly. Acknowledge they are doing okay. (e.g., "glad you're checking in")
+          - Mild: gentle, understanding. Normalize minor struggles.
+          - Moderate: acknowledge emotional weight. (e.g., "it makes sense that things feel a bit much")
+          - High: calm, steady, real, grounding. (e.g., "this feels heavy", "a lot to carry")
 
           Use this style: ${introduction}
 
@@ -34,7 +34,7 @@ function makePrompt(assessment, score, interpretation) {
           - Avoid clinical or diagnostic terms
           - Do not name emotions explicitly (e.g., avoid specific labels)
           - Use simple, natural language
-          - Keep under 80 words
+          - Keep under 100 words
           
           Critical:
           - Do not ask questions
@@ -42,10 +42,10 @@ function makePrompt(assessment, score, interpretation) {
           - Do not invite conversation or sharing
 
           Instead:
-          - Recognizing the feeling indirectly (e.g., “this feels heavy,” “a lot to carry”)
-          - Normalizing the experience
-          - Offering quiet presence (“I’m here with you”)
-          - Creating a sense of safety without expectation`
+          - Recognize the feeling indirectly and appropriately for the severity level
+          - Normalize the experience
+          - Offer quiet presence (“I’m here with you”)
+          - Create a sense of safety without expectation`
 }
 //FUNCTION TO GENERATE SUPPORT FEEDBACK
 export async function generateSupportFeedback(assessment, score, interpretation) {
